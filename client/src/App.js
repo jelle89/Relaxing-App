@@ -1,5 +1,7 @@
 import React from "react";
+import store from "./store";
 import "./App.css";
+import { Provider } from "react-redux";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 import IntroScreen from "./components/IntroScreen";
 import Stress from "./components/StressComponent";
@@ -8,7 +10,8 @@ import Relax from "./components/RelaxComponent";
 
 function App() {
   return (
-    <BrowserRouter>
+    <Provider store={store}>
+    <BrowserRouter store={store}>
     <div className="App">
       <Switch>
         <Route exact path="/" component={IntroScreen} />
@@ -17,6 +20,7 @@ function App() {
       </Switch>
     </div>
     </BrowserRouter>
+    </Provider>
   );
 }
 
