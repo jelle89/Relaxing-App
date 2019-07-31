@@ -6,12 +6,12 @@ import {
   FormHelperText
 } from "@material-ui/core";
 
-export default function MessageContainer(props) {
-  console.log(props, "propsvanmessages");
+export default function relaxMessageContainer(props) {
+  console.log(props, "propsvanrelaxmessages");
   return (
     <div>
     <FormControl>
-      <InputLabel htmlFor="text">Enter your message here</InputLabel>
+      <InputLabel htmlFor="text">Enter your relax message here</InputLabel>
       <Input
         type="text"
         aria-describedby="my-helper-text"

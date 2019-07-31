@@ -1,8 +1,8 @@
 const Sequelize = require("sequelize");
 const sequelize = require("../db");
 
-const Message = sequelize.define(
-  "Message",
+const relaxMessage = sequelize.define(
+  "relaxMessage",
   {
     text: {
       type: Sequelize.STRING
@@ -10,8 +10,8 @@ const Message = sequelize.define(
   },
   {
     timestamps: false,
-    tableName: "messages"
+    tableName: "relaxmessages"
   }
 );
 
-module.exports = Message;
+module.exports = relaxMessage;

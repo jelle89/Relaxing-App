@@ -1,6 +1,8 @@
 import { combineReducers } from "redux";
-import messages from "./messages";
+import relaxmessages from "./relaxmessages";
+import stressmessages from "./stressmessages";
 
 export default combineReducers({
-  messages
+  relaxmessages,
+  stressmessages
 });

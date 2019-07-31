@@ -22,9 +22,9 @@ import {
   Input,
   FormHelperText
 } from "@material-ui/core";
-import { submitMessage, loadMessages } from "../actions/messages";
-import MessageContainer from "./messages/MessageContainer"
-import DrawMessages from "./messages/DrawMessages"
+import { submitRelaxMessage, loadRelaxMessages } from "../actions/relaxmessages";
+import RelaxMessageContainer from "./messages/RelaxMessageContainer"
+import DrawRelaxMessages from "./messages/DrawRelaxMessages"
 import relax1 from "../images/relax1.png";
 import relax2 from "../images/relax2.jpg";
 import relax3 from "../images/relax3.png";
@@ -38,7 +38,7 @@ class Relax extends Component {
 
   componentDidMount() {
     console.log("compo did mount", Number(this.props.match.params.id));
-    this.props.loadMessages(this.props.match.params.id);
+    this.props.loadRelaxMessages(this.props.match.params.id);
   }
 
   onChange = event => {
@@ -56,7 +56,7 @@ class Relax extends Component {
     this.setState({
       editMode: false
     });
-    this.props.submitMessage(this.state.formValues);
+    this.props.submitRelaxMessage(this.state.formValues);
   };
   render() {
     return (
@@ -71,6 +71,7 @@ class Relax extends Component {
             </Toolbar>
           </AppBar>
         </React.Fragment>
+       
         <Sky
           images={{
             0: relax1,
@@ -100,28 +101,29 @@ class Relax extends Component {
           onFinishedPlaying={this.handleSongFinishedPlaying}
           loop={true}
         />
-        <MessageContainer
+        <RelaxMessageContainer
           onChange={this.onChange}
           onSubmit={this.onSubmit}
           text={this.state.formValues.text}
         />
-        <DrawMessages messages={this.props.message} />
+        <DrawRelaxMessages relaxmessages={this.props.relaxmessage} />
+       
       </div>
     );
   }
 }
 
 const mapStateToProps = state => {
-  console.log("mapstatetoprops", state.messages);
+  console.log("mapstatetoprops", state.relaxmessages);
   return {
-    message: state.messages
+    relaxmessage: state.relaxmessages
   };
 };
 
 export default connect(
   mapStateToProps,
   {
-    loadMessages,
-    submitMessage
+    loadRelaxMessages,
+    submitRelaxMessage
   }
 )(Relax);

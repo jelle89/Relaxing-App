@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
 import Sky from "react-sky";
 import Sound from "react-sound"
 import AppBar from "@material-ui/core/AppBar";
@@ -15,6 +16,9 @@ import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
 import Container from "@material-ui/core/Container";
 import Link from "@material-ui/core/Link";
+import { submitStressMessage, loadStressMessages } from "../actions/stressmessages";
+import StressMessageContainer from "./messages/StressMessageContainer"
+import DrawStressMessages from "./messages/DrawStressMessages"
 import { FormControl, InputLabel, Input, FormHelperText } from "@material-ui/core";
 import stress1 from "../images/stress1.jpg";
 import stress2 from "../images/stress2.png";
@@ -24,6 +28,33 @@ import audio1 from "../audio/stress1.mp3"
 
 
 class Stress extends Component {
+  state = {
+    editMode: false,
+    formValues: { text: "Add message", author: "Someone" }
+  };
+
+  componentDidMount() {
+    console.log("compo did mount", Number(this.props.match.params.id));
+    this.props.loadStressMessages(this.props.match.params.id);
+  }
+
+  onChange = event => {
+    console.log("onchange is aangeroepen", this.state);
+    this.setState({
+      formValues: {
+        [event.target.name]: event.target.value
+      }
+    });
+  };
+
+  onSubmit = event => {
+    console.log("pressed a butttton");
+    event.preventDefault();
+    this.setState({
+      editMode: false
+    });
+    this.props.submitStressMessage(this.state.formValues);
+  };
   render() {
 
     return (
@@ -34,7 +65,7 @@ class Stress extends Component {
           <AppBar position="relative">
             <Toolbar>
               <Typography variant="h6" color="inherit" noWrap>
-              A (not?) very therapeutic app
+              A (not?) very relaxing app
               </Typography>
             </Toolbar>
           </AppBar>
@@ -53,13 +84,13 @@ class Stress extends Component {
           size={"100px"} /* size of the rendered images. Defaults at 150px */
           background={"red"} /* color of background. Defaults to none */
         />
-        <FormControl>
+        {/* <FormControl>
           <InputLabel htmlFor="my-input">Email address</InputLabel>
           <Input id="my-input" aria-describedby="my-helper-text" />
           <FormHelperText id="my-helper-text">
             We'll never share your email.
           </FormHelperText>
-        </FormControl>
+        </FormControl> */}
         <Sound
       url={audio1}
       playStatus={Sound.status.PLAYING}
@@ -69,11 +100,30 @@ class Stress extends Component {
       onFinishedPlaying={this.handleSongFinishedPlaying}
       loop={true}
     />
+    <StressMessageContainer
+          onChange={this.onChange}
+          onSubmit={this.onSubmit}
+          text={this.state.formValues.text}
+        />
+        <DrawStressMessages stressmessages={this.props.stressmessage} />
       </div>
     );
   }
   
 }
 
-export default Stress;
+const mapStateToProps = state => {
+  console.log("mapstatetoprops", state.stressmessages);
+  return {
+    stressmessage: state.stressmessages
+  };
+};
+
+export default connect(
+  mapStateToProps,
+  {
+    loadStressMessages,
+    submitStressMessage
+  }
+)(Stress);
 
