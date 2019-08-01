@@ -30,7 +30,7 @@ import "./StressComponent.css";
 class StressMessages extends Component {
     state = {
       editMode: false,
-      formValues: { text: "Add message", author: "Someone" }
+      formValues: { text: "Insert text here" }
     };
   
     componentDidMount() {

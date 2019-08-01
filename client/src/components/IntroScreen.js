@@ -57,7 +57,7 @@ function Welcome() {
       <AppBar position="relative">
         <Toolbar>
           <PauseIcon className={classes.icon} />
-          <Typography variant="h4" color="inherit" noWrap>
+          <Typography variant="h6" color="inherit" noWrap>
             A (not?) very relaxing website
           </Typography>
         </Toolbar>
@@ -67,7 +67,7 @@ function Welcome() {
           <Container maxWidth="sm">
             <Typography
               component="h1"
-              variant="h2"
+              variant="h6"
               align="center"
               color="textPrimary"
               gutterBottom

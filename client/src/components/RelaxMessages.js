@@ -37,7 +37,7 @@ import audio2 from "../audio/relax1.mp3";
 class RelaxMessages extends Component {
     state = {
         editMode: false,
-        formValues: { text: "Add message", author: "Someone" }
+        formValues: { text: "Insert your feedback here" }
       };
   componentDidMount() {
     console.log("compo did mount", Number(this.props.match.params.id));

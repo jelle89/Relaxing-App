@@ -29,33 +29,6 @@ import "./StressComponent.css";
 
 
 class Stress extends Component {
-  state = {
-    editMode: false,
-    formValues: { text: "Add message", author: "Someone" }
-  };
-
-  componentDidMount() {
-    console.log("compo did mount", Number(this.props.match.params.id));
-    this.props.loadStressMessages(this.props.match.params.id);
-  }
-
-  onChange = event => {
-    console.log("onchange is aangeroepen", this.state);
-    this.setState({
-      formValues: {
-        [event.target.name]: event.target.value
-      }
-    });
-  };
-
-  onSubmit = event => {
-    console.log("pressed a butttton");
-    event.preventDefault();
-    this.setState({
-      editMode: false
-    });
-    this.props.submitStressMessage(this.state.formValues);
-  };
   render() {
 
     return (
@@ -113,7 +86,7 @@ class Stress extends Component {
   <div class="content">
     <a href="stressmessages">
       <div class="content-overlay"></div>
-      <img class="content-image" src="https://media0.giphy.com/media/Gdap1KQCiv5v2/giphy.gif?cid=790b76115d42c6e777636f57515e3059&rid=giphy.gif"/>
+      <img class="content-image2" src="https://media0.giphy.com/media/Gdap1KQCiv5v2/giphy.gif?cid=790b76115d42c6e777636f57515e3059&rid=giphy.gif" id="stress"/>
       </a>
       <div class="content-details fadeIn-bottom">
         <h3 class="content-title">Had enough?</h3>

@@ -35,35 +35,6 @@ import audio2 from "../audio/relax1.mp3";
 import "./RelaxComponent.css";
 
 class Relax extends Component {
-  state = {
-    editMode: false,
-    formValues: { text: "Add message", author: "Someone" }
-  };
-
-  
-
-  componentDidMount() {
-    console.log("compo did mount", Number(this.props.match.params.id));
-    this.props.loadRelaxMessages(this.props.match.params.id);
-  }
-
-  onChange = event => {
-    console.log("onchange is aangeroepen", this.state);
-    this.setState({
-      formValues: {
-        [event.target.name]: event.target.value
-      }
-    });
-  };
-
-  onSubmit = event => {
-    console.log("pressed a butttton");
-    event.preventDefault();
-    this.setState({
-      editMode: false
-    });
-    this.props.submitRelaxMessage(this.state.formValues);
-  };
   render() {
     return (
       <div>
