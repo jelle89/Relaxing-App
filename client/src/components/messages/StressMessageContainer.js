@@ -44,14 +44,14 @@ export default function stressMessageContainer(props) {
         onChange={props.onChange}
         value={props.text}
         variant="outlined"
-        onSubmit={props.onSubmit}
+        eventHandler={props.eventHandler}
       />
       <Button 
        type="submit"
        fullWidth
        variant="contained"
        color="primary"
-       onClick={props.onSubmit}
+       onClick={props.eventHandler}
        Message>
          Your feedback </Button>
          
@@ -71,7 +71,7 @@ export default function stressMessageContainer(props) {
         </FormControl> */
 }
 
-//   <form onSubmit={props.onSubmit}>
+//   <form eventHandler={props.eventHandler}>
 
 //   <label>
 //     Message:
@@ -82,7 +82,7 @@ export default function stressMessageContainer(props) {
 //       value={props.text}
 //     />
 //   </label>
-//   <button onClick={props.onSubmit}>Submit</button>
+//   <button onClick={props.eventHandler}>Submit</button>
 // </form>
 
-// <button onClick={props.onSubmit}>Submit</button>
+// <button onClick={props.eventHandler}>Submit</button>

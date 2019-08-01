@@ -30,7 +30,7 @@ import "./StressComponent.css";
 class StressMessages extends Component {
     state = {
       editMode: false,
-      formValues: { text: "Insert text here" }
+      formValues: { text: "Insert your feedback" }
     };
   
     componentDidMount() {
@@ -47,9 +47,8 @@ class StressMessages extends Component {
       });
     };
   
-    onSubmit = event => {
+    eventHandler = event => {
       console.log("pressed a butttton");
-      event.preventDefault();
       this.setState({
         editMode: false
       });
@@ -61,7 +60,7 @@ class StressMessages extends Component {
           <div>
                <StressMessageContainer
           onChange={this.onChange}
-          onSubmit={this.onSubmit}
+          eventHandler={this.eventHandler}
           text={this.state.formValues.text}
         />
         <DrawStressMessages stressmessages={this.props.stressmessage} />

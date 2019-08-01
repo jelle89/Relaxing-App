@@ -18,8 +18,10 @@ export default class DrawStressMessages extends Component {
             ))}
         </ul>
 
-        <Link to="/">Home</Link>
+        <footer><Link to="/">Home</Link></footer>
+
       </div>
+      
     );
   }
 }

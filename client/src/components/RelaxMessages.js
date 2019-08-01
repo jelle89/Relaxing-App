@@ -53,9 +53,8 @@ class RelaxMessages extends Component {
     });
   };
 
-  onSubmit = event => {
+  eventHandler = event => {
     console.log("pressed a butttton");
-    event.preventDefault();
     this.setState({
       editMode: false
     });
@@ -66,7 +65,7 @@ class RelaxMessages extends Component {
       <div>
         <RelaxMessageContainer
           onChange={this.onChange}
-          onSubmit={this.onSubmit}
+          eventHandler={this.eventHandler}
           text={this.state.formValues.text}
         />
         <DrawRelaxMessages relaxmessages={this.props.relaxmessage} />

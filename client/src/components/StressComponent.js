@@ -101,7 +101,7 @@ class Stress extends Component {
     
     {/* <StressMessageContainer
           onChange={this.onChange}
-          onSubmit={this.onSubmit}
+          eventHandler={this.eventHandler}
           text={this.state.formValues.text}
         />
         <DrawStressMessages stressmessages={this.props.stressmessage} /> */}

@@ -105,7 +105,7 @@ class Relax extends Component {
 </Grid>
         {/* <RelaxMessageContainer
           onChange={this.onChange}
-          onSubmit={this.onSubmit}
+          eventHandler={this.eventHandler}
           text={this.state.formValues.text}
         />
         <DrawRelaxMessages relaxmessages={this.props.relaxmessage} /> */}

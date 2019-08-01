@@ -23,6 +23,7 @@ import Link from "@material-ui/core/Link";
 
 export default function relaxMessageContainer(props) {
   console.log(props, "propsvanrelaxmessages");
+  
   return (
     <div>
       <React.Fragment>
@@ -51,6 +52,7 @@ export default function relaxMessageContainer(props) {
        fullWidth
        variant="contained"
        color="primary"
+       onClick={props.eventHandler}
        Message>
          Your feedback </Button>
     </FormControl>
@@ -69,7 +71,7 @@ export default function relaxMessageContainer(props) {
         </FormControl> */
 }
 
-//   <form onSubmit={props.onSubmit}>
+//   <form eventHandler={props.eventHandler}>
 
 //   <label>
 //     Message:
@@ -80,7 +82,7 @@ export default function relaxMessageContainer(props) {
 //       value={props.text}
 //     />
 //   </label>
-//   <button onClick={props.onSubmit}>Submit</button>
+//   <button onClick={props.eventHandler}>Submit</button>
 // </form>
 
-// <button onClick={props.onSubmit}>Submit</button>
+// <button onClick={props.eventHandler}>Submit</button>
