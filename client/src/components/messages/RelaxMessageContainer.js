@@ -11,7 +11,7 @@ export default function relaxMessageContainer(props) {
   return (
     <div>
     <FormControl>
-      <InputLabel htmlFor="text">Enter your relax message here</InputLabel>
+      <InputLabel htmlFor="text">Message :)</InputLabel>
       <Input
         type="text"
         aria-describedby="my-helper-text"
@@ -19,7 +19,7 @@ export default function relaxMessageContainer(props) {
         onChange={props.onChange}
         value={props.text}
       />
-      <button onClick={props.onSubmit}>Make it a nice one!</button>
+      <button onClick={props.onSubmit}>Chill! ;)</button>
 
 
     </FormControl>

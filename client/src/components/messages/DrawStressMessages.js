@@ -1,14 +1,15 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
+import "./DrawStressMessages"
 
 export default class DrawStressMessages extends Component {
   render() {
     console.log("hallo propjes", this.props.stressmessages);
     if (!this.props) return "......";
     return (
-      <div>
+      <div id="myUL">
         {!this.props.stressmessages && <li>Loading stress messages...</li>}
-        <ul>
+        <ul id="myUL">
           {this.props.stressmessages &&
             this.props.stressmessages.map(stressmessage => (
               <li key={stressmessage.id}>
@@ -17,7 +18,7 @@ export default class DrawStressMessages extends Component {
             ))}
         </ul>
 
-        <Link to="/">Back to the homepage</Link>
+        <Link to="/">Home</Link>
       </div>
     );
   }

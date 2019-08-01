@@ -25,6 +25,7 @@ import stress2 from "../images/stress2.png";
 import stress3 from "../images/stress3.png";
 import stress4 from "../images/stress4.jpg";
 import audio1 from "../audio/stress1.mp3"
+import "./StressComponent.css";
 
 
 class Stress extends Component {
@@ -65,7 +66,7 @@ class Stress extends Component {
           <AppBar position="relative">
             <Toolbar>
               <Typography variant="h6" color="inherit" noWrap>
-              A (not?) very relaxing app
+              A (not?) very relaxing website
               </Typography>
             </Toolbar>
           </AppBar>
@@ -100,12 +101,37 @@ class Stress extends Component {
       onFinishedPlaying={this.handleSongFinishedPlaying}
       loop={true}
     />
-    <StressMessageContainer
+     <Grid
+    container
+    spacing={0}
+    align="center"
+    justify="center"
+    direction="column"
+    
+  >
+    <div class="container">
+  <div class="content">
+    <a href="stressmessages">
+      <div class="content-overlay"></div>
+      <img class="content-image" src="https://media0.giphy.com/media/Gdap1KQCiv5v2/giphy.gif?cid=790b76115d42c6e777636f57515e3059&rid=giphy.gif"/>
+      </a>
+      <div class="content-details fadeIn-bottom">
+        <h3 class="content-title">Had enough?</h3>
+        <p class="content-text" href="stressmessages">Click here to leave your thoughts</p>
+        
+   </div>
+  </div>
+</div>
+
+
+</Grid>
+    
+    {/* <StressMessageContainer
           onChange={this.onChange}
           onSubmit={this.onSubmit}
           text={this.state.formValues.text}
         />
-        <DrawStressMessages stressmessages={this.props.stressmessage} />
+        <DrawStressMessages stressmessages={this.props.stressmessage} /> */}
       </div>
     );
   }

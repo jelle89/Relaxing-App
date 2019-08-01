@@ -1,14 +1,15 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
+import "./DrawRelaxMessages.css"
 
 export default class DrawRelaxMessages extends Component {
   render() {
     console.log("hallo propjes", this.props.relaxmessages);
     if (!this.props) return "......";
     return (
-      <div>
+      <div id="myDIV">
         {!this.props.relaxmessages && <li>Loading relax messages...</li>}
-        <ul>
+        <ul id="myUL">
           {this.props.relaxmessages &&
             this.props.relaxmessages.map(relaxmessage => (
               <li key={relaxmessage.id}>
@@ -17,7 +18,7 @@ export default class DrawRelaxMessages extends Component {
             ))}
         </ul>
 
-        <Link to="/">Back to the homepage</Link>
+        <Link to="/">Home</Link>
       </div>
     );
   }

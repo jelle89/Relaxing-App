@@ -22,19 +22,25 @@ import {
   Input,
   FormHelperText
 } from "@material-ui/core";
-import { submitRelaxMessage, loadRelaxMessages } from "../actions/relaxmessages";
-import RelaxMessageContainer from "./messages/RelaxMessageContainer"
-import DrawRelaxMessages from "./messages/DrawRelaxMessages"
+import {
+  submitRelaxMessage,
+  loadRelaxMessages
+} from "../actions/relaxmessages";
+import RelaxMessageContainer from "./messages/RelaxMessageContainer";
+import DrawRelaxMessages from "./messages/DrawRelaxMessages";
 import relax1 from "../images/relax1.png";
 import relax2 from "../images/relax2.jpg";
 import relax3 from "../images/relax3.png";
 import audio2 from "../audio/relax1.mp3";
+import "./RelaxComponent.css";
 
 class Relax extends Component {
   state = {
     editMode: false,
     formValues: { text: "Add message", author: "Someone" }
   };
+
+  
 
   componentDidMount() {
     console.log("compo did mount", Number(this.props.match.params.id));
@@ -61,17 +67,18 @@ class Relax extends Component {
   render() {
     return (
       <div>
+        
         <React.Fragment>
           <CssBaseline />
           <AppBar position="relative">
             <Toolbar>
               <Typography variant="h6" color="inherit" noWrap>
-                A (not?) very relaxing app
+                A (not?) very relaxing website
               </Typography>
             </Toolbar>
           </AppBar>
         </React.Fragment>
-       
+        
         <Sky
           images={{
             0: relax1,
@@ -101,13 +108,37 @@ class Relax extends Component {
           onFinishedPlaying={this.handleSongFinishedPlaying}
           loop={true}
         />
-        <RelaxMessageContainer
+        <Grid
+    container
+    spacing={0}
+    align="center"
+    justify="center"
+    direction="column"
+    
+  >
+    <div class="container">
+  <div class="content">
+    <a href="relaxmessages" >
+      <div class="content-overlay"></div>
+      <img class="content-image" src="https://i.imgur.com/Sk8uISa.gif"/>
+      </a>
+      <div class="content-details fadeIn-bottom">
+        <h3 class="content-title">Had enough?</h3>
+        <p class="content-text" href="relaxmessages">Click here to leave your thoughts</p>
+        
+   </div>
+  </div>
+</div>
+
+
+</Grid>
+        {/* <RelaxMessageContainer
           onChange={this.onChange}
           onSubmit={this.onSubmit}
           text={this.state.formValues.text}
         />
-        <DrawRelaxMessages relaxmessages={this.props.relaxmessage} />
-       
+        <DrawRelaxMessages relaxmessages={this.props.relaxmessage} /> */}
+              
       </div>
     );
   }

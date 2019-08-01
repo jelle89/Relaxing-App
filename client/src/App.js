@@ -6,6 +6,8 @@ import { BrowserRouter, Switch, Route } from "react-router-dom";
 import IntroScreen from "./components/IntroScreen";
 import Stress from "./components/StressComponent";
 import Relax from "./components/RelaxComponent";
+import RelaxMessages from "./components/RelaxMessages"
+import StressMessages from "./components/StressMessages"
 
 
 function App() {
@@ -17,6 +19,8 @@ function App() {
         <Route exact path="/" component={IntroScreen} />
         <Route path="/stress" component={Stress} />
         <Route path="/relax" exact component={Relax} />
+        <Route path="/relaxmessages" component={RelaxMessages} />
+        <Route path="/stressmessages" component={StressMessages} />
       </Switch>
     </div>
     </BrowserRouter>
